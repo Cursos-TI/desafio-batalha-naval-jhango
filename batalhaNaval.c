@@ -5,6 +5,58 @@
 // Siga os comentários para implementar cada parte do desafio.
 
 int main() {
+    
+    //Criação das variáveis e tabuleiro
+    int i, j, contador;
+    int tabuleiro[10][10];
+
+    //For usado para criar o tabuleiro completo com ZEROS que representam água
+    for (i = 0; i < 10; i++){
+
+        for (j = 0; j < 10; j++){
+            tabuleiro[i][j] = 0;
+        }
+
+    }
+
+    //Colocar o navio horizontal no tabuleiro
+    for (contador = 1; contador<4; contador++){
+
+        for (i = 3; i < 6; i++){
+            tabuleiro[4][i] = 3;
+        }
+
+    }
+
+    //Colocar o navio vertical no tabuleiro
+    for (contador = 1; contador<4; contador++){
+
+        for (i = 2; i < 5; i++){
+            tabuleiro[i][8] = 3;
+        }
+
+    }
+    
+    //For utilizado para imprimir o tabuleiro
+    printf("    A B C D E F G H I J\n");
+    for (i = 0; i < 10; i++){
+
+        if (i == 9){
+            printf("%d- ", i+1);
+        }else{
+            printf("%d-  ", i+1);
+        }
+        
+
+        for (j = 0; j < 10; j++){
+            printf("%d ",tabuleiro[i][j]);
+        }
+
+        printf("\n");
+
+    }
+
+
     // Nível Novato - Posicionamento dos Navios
     // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
     // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
