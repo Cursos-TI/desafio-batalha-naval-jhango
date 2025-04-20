@@ -7,7 +7,7 @@
 int main() {
     
     //Criação das variáveis e tabuleiro
-    int i, j, contador;
+    int i, j;
     int tabuleiro[10][10];
 
     //For usado para criar o tabuleiro completo com ZEROS que representam água
@@ -20,23 +20,29 @@ int main() {
     }
 
     //Colocar o navio horizontal no tabuleiro
-    for (contador = 1; contador<4; contador++){
-
-        for (i = 3; i < 6; i++){
-            tabuleiro[4][i] = 3;
-        }
-
+    for (i = 3; i < 6; i++){
+        tabuleiro[4][i] = 3;
     }
 
     //Colocar o navio vertical no tabuleiro
-    for (contador = 1; contador<4; contador++){
-
-        for (i = 2; i < 5; i++){
-            tabuleiro[i][8] = 3;
-        }
-
+    for (i = 2; i < 5; i++){
+        tabuleiro[i][8] = 3;
     }
+
     
+
+    //Colocar o primeiro navio diagonal no tabuleiro
+    for (i = 6; i < 9; i++){
+        tabuleiro[i][i] = 3;
+    }
+
+    //Colocar o segundo navio diagonal no tabuleiro
+    j = 2;
+    for (i = 3; i > 0; i--){
+        tabuleiro[i][j] = 3;
+        j++;
+    }
+
     //For utilizado para imprimir o tabuleiro
     printf("    A B C D E F G H I J\n");
     for (i = 0; i < 10; i++){
