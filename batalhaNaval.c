@@ -62,6 +62,163 @@ int main() {
 
     }
 
+    //Implementação das habilidades especiais do desafio Mestre
+    //For usado para criar o tabuleiro completo com ZEROS que representam água
+    for (i = 0; i < 10; i++){
+
+        for (j = 0; j < 10; j++){
+            tabuleiro[i][j] = 0;
+        }
+
+    }
+
+    //Implementação da habilidade Cone
+    int conelinha = 3, conecoluna = 3, coneaumento = 1;
+    for (i = 0; i < 10; i++){
+
+        for (j = 0; j < 10; j++){
+            if ( i == conelinha && j == conecoluna && coneaumento < 5){
+                tabuleiro[i][j] = 1;
+                if (coneaumento > 1 && coneaumento < 5){
+                    for (int linha = 1; linha < coneaumento; linha++){
+                        tabuleiro[i][j-coneaumento+linha] = 1;
+                        tabuleiro[i][j+coneaumento-linha] = 1;
+                    }
+                }
+                conelinha++;
+                coneaumento++;
+            }
+        }
+
+    }
+
+     //For utilizado para imprimir o tabuleiro
+     printf("    A B C D E F G H I J\n");
+     for (i = 0; i < 10; i++){
+ 
+         if (i == 9){
+             printf("%d- ", i+1);
+         }else{
+             printf("%d-  ", i+1);
+         }
+         
+ 
+         for (j = 0; j < 10; j++){
+             printf("%d ",tabuleiro[i][j]);
+         }
+ 
+         printf("\n");
+ 
+     }
+
+     
+     //For usado para criar o tabuleiro completo com ZEROS que representam água
+    for (i = 0; i < 10; i++){
+
+        for (j = 0; j < 10; j++){
+            tabuleiro[i][j] = 0;
+        }
+
+    }
+
+    //Implementação da habilidade Octaedro
+    int octalinha = 2, octacoluna = 4, octaaumento = 1, octaaumento2 = 4;
+    for (int a = 0; a < 10; a++){
+
+        for (int b = 0; b < 10; b++){
+            if ( a == octalinha && b == octacoluna && octaaumento < 5){
+                tabuleiro[a][b] = 1;
+                if (octaaumento > 1 && octaaumento < 5){
+                    for (int linha2 = 1; linha2 < octaaumento; linha2++){
+                        tabuleiro[a][b-octaaumento+linha2] = 1;
+                        tabuleiro[a][b+octaaumento-linha2] = 1;
+                    }
+                }
+                octalinha++;
+                octaaumento++;
+            }
+        }
+    }
+    // Parte de baixo (espelhada)
+    int octalinha_baixo = octalinha; // começa onde parou
+    octaaumento = 3; // começa diminuindo
+
+    for (int a = octalinha_baixo; a < 10; a++) {
+        for (int b = 0; b < 10; b++) {
+            if (a == octalinha_baixo && b == octacoluna && octaaumento > 0) {
+                tabuleiro[a][b] = 1;
+                if (octaaumento > 1) {
+                    for (int linha2 = 1; linha2 < octaaumento; linha2++) {
+                        tabuleiro[a][b - octaaumento + linha2] = 1;
+                        tabuleiro[a][b + octaaumento - linha2] = 1;
+                    }
+                }
+                octalinha_baixo++;
+                octaaumento--;
+            }
+        }
+    }
+
+    //For utilizado para imprimir o tabuleiro
+    printf("    A B C D E F G H I J\n");
+    for (i = 0; i < 10; i++){
+
+        if (i == 9){
+            printf("%d- ", i+1);
+        }else{
+            printf("%d-  ", i+1);
+        }
+        
+
+        for (j = 0; j < 10; j++){
+            printf("%d ",tabuleiro[i][j]);
+        }
+
+        printf("\n");
+
+    }
+
+    //For usado para criar o tabuleiro completo com ZEROS que representam água
+    for (i = 0; i < 10; i++){
+
+        for (j = 0; j < 10; j++){
+            tabuleiro[i][j] = 0;
+        }
+
+    }
+
+    //Implementação da habilidade em, cruz
+    int linhaalvo = 4, colunaalvo = 4;
+    for (int i = 0; i < 10; i++){
+        for (int j = 0; j < 10; j++){
+            if (i == linhaalvo){
+                tabuleiro[i][j] = 1;
+            }
+            if (j == colunaalvo){
+                tabuleiro[i][j] = 1;
+            }
+        }
+    }
+
+    //For utilizado para imprimir o tabuleiro
+    printf("    A B C D E F G H I J\n");
+    for (i = 0; i < 10; i++){
+
+        if (i == 9){
+            printf("%d- ", i+1);
+        }else{
+            printf("%d-  ", i+1);
+        }
+        
+
+        for (j = 0; j < 10; j++){
+            printf("%d ",tabuleiro[i][j]);
+        }
+
+        printf("\n");
+
+    }
+
 
     // Nível Novato - Posicionamento dos Navios
     // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
